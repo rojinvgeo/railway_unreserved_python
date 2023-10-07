@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" class="light scroll-smooth" dir="ltr">
+    
+<!-- Mirrored from shreethemes.in/jobstack/layouts/helpcenter-faqs.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 24 Jun 2023 04:31:15 GMT -->
+<head>
+        <meta charset="UTF-8">
+        <title>Faq section</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="Job Listing Landing Template" name="description">
+        <meta content="Job, CV, Career, Resume, Job Portal, Create Job, Post job, tailwind Css" name="keywords">
+        <meta name="author" content="Shreethemes">
+        <meta name="website" content="https://shreethemes.in/">
+        <meta name="email" content="support@shreethemes.in">
+        <meta name="version" content="1.2.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!-- favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- Css -->
+        <!-- Main Css -->
+        <link href="{% static 'assets/libs/%40iconscout/unicons/css/line.css' %}" type="text/css" rel="stylesheet">
+        <link href="{% static 'assets/libs/%40mdi/font/css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'assets/css/tailwind.css' %}" rel="stylesheet" type="text/css">
+
+    </head>
+    
+    <body class="dark:bg-slate-900">
+        <!-- Loader Start -->
+        <!-- <div id="preloader">
+            <div id="status">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Loader End -->
+        
+        <!-- Start Navbar -->
+        <nav id="topnav" class="defaultscroll is-sticky">
+            <div class="container">
+                <!-- Logo container-->
+                <a class="logo" href="index.html">
+                    <div class="block sm:hidden">
+                        <img src="assets/images/logo-icon-40.png" class="h-10 inline-block dark:hidden"  alt="">
+                        <img src="assets/images/logo-icon-40-white.png" class="h-10 hidden dark:inline-block"  alt="">
+                    </div>
+                    <div class="sm:block hidden">
+                        <span class="inline-block dark:hidden">
+                            <img src="assets/images/logo-dark.png" class="h-[24px] l-dark" alt="">
+                            <img src="assets/images/logo-light.png" class="h-[24px] l-light" alt="">
+                        </span>
+                        <img src="assets/images/logo-white.png" class="h-[24px] hidden dark:inline-block" alt="">
+                    </div>
+                </a>
+                <!-- End Logo container-->
+
+                <!-- Start Mobile Toggle -->
+                <div class="menu-extras">
+                    <div class="menu-item">
+                        <a class="navbar-toggle" id="isToggle" onclick="toggleMenu()">
+                            <div class="lines">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- End Mobile Toggle -->
+
+                <!--Login button Start-->
+                <ul class="buy-button list-none mb-0">
+                    <li class="inline-block mb-0">
+                        
+                    </li>
+                    <li class="inline-block ps-1 mb-0">
+                        <a href="#" class="btn btn-icon rounded-full bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white"><img src="assets/images/team/05.jpg" class="rounded-full" alt=""></a>
+                    </li>
+                </ul>
+                <!--Login button End-->
+
+                <div id="navigation">
+                    <!-- Navigation Menu-->   
+                    <ul class="navigation-menu justify-end nav-light">
+                        <li class="has-submenu parent-menu-item">
+                            <a href="javascript:void(0)">Home</a>
+                           
+                        </li>
+
+                        <!-- <li class="has-submenu parent-parent-menu-item"><a href="javascript:void(0)"> Jobs </a>
+                           
+                         -->
+                                
+
+                               
+
+                              
+                            
+                
+                        <li class="has-submenu parent-parent-menu-item">
+                            <a href="">Login</a>
+                            <ul class="submenu">
+                        <li><a href="{% url 'login' %}" class="sub-menu-item">User</a></li>
+                        <li><a href="{% url 'customer_login' %}" class="sub-menu-item">Customer</a></li>
+                    </ul><!--end navigation menu-->
+                </div><!--end navigation-->
+            </div><!--end container-->
+        </nav><!--end header-->
+        <!-- End Navbar -->
+
+        <!-- Start Hero -->
+        <section class="relative table w-full py-36 bg-[url('../../assets/images/hero/bg.html')] bg-top bg-no-repeat bg-cover">
+            <div class="absolute inset-0 bg-emerald-900/90"></div>
+            <div class="container">
+                <div class="grid grid-cols-1 text-center mt-10">
+                    <h3 class="md:text-3xl text-2xl md:leading-snug tracking-wide leading-snug font-medium text-white">Frequently Asked Questions</h3>
+
+                </div><!--end grid-->
+            </div><!--end container-->
+            
+            <div class="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
+                <ul class="breadcrumb tracking-[0.5px] breadcrumb-light mb-0 inline-block">
+                   <!-- <li class="inline breadcrumb-item text-[15px] font-semibold duration-500 ease-in-out text-white/50 hover:text-white"><a href="index.html">Jobstack</a></li>
+                   <li class="inline breadcrumb-item text-[15px] font-semibold duration-500 ease-in-out text-white/50 hover:text-white"><a href="helpcenter-overview.html">Helpcenter</a></li> -->
+                    <li class="inline breadcrumb-item text-[15px] font-semibold duration-500 ease-in-out text-white" aria-current="page">FAQs</li>
+                </ul>
+            </div>
+        </section><!--end section-->
+        <div class="relative">
+            <div class="shape absolute start-0 end-0 sm:-bottom-px -bottom-[2px] overflow-hidden z-1 text-white dark:text-slate-900">
+                <svg class="w-full h-auto" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </div>
+        <!-- End Hero -->
+
+        <!-- Start Section-->
+        <section class="relative md:py-24 py-16">
+            <div class="container">
+                <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
+                    <div class="lg:col-span-4 md:col-span-5">
+                        <div class="rounded-md shadow dark:shadow-gray-800 p-6 sticky top-20">
+                            <ul class="list-none sidebar-nav mb-0 py-0" id="navmenu-nav">
+                                <li class="navbar-item mt-3 p-0"><a href="#general" class="text-base font-medium navbar-link">General Questions</a></li>
+                                <li class="navbar-item mt-3 p-0"><a href="#payment" class="text-base font-medium navbar-link">Payments Questions</a></li>
+                                <li class="navbar-item mt-3 p-0"><a href="#support" class="text-base font-medium navbar-link">Support Questions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-8 md:col-span-7">
+                        <div id="tech">
+                           
+
+                            <div id="accordion-collapseone" data-accordion="collapse" class="mt-6">
+                                
+
+                        <div id="general" class="mt-8">
+                            <h5 class="text-2xl font-semibold">General Questions</h5>
+
+                            <div id="accordion-collapsetwo" data-accordion="collapse" class="mt-6">
+                                <div class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden">
+                                    <h2 class="text-base font-semibold" id="accordion-collapse-heading-5">
+                                        <button type="button" class="flex justify-between items-center p-5 w-full font-semibold text-left" data-accordion-target="#accordion-collapse-body-5" aria-expanded="true" aria-controls="accordion-collapse-body-5">
+                                            <span>What are unreserved train tickets?</span>
+                                            <svg data-accordion-icon class="w-4 h-4 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </h2>
+                                    <div id="accordion-collapse-body-5" class="hidden" aria-labelledby="accordion-collapse-heading-5">
+                                        <div class="p-5">
+                                            <p class="text-slate-400 dark:text-gray-400"> Unreserved train tickets are tickets that allow you to travel on trains without a reserved seat. These tickets are typically available for shorter distances or on trains that do not offer reserved seating.</p>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4">
+                                    <h2 class="text-base font-semibold" id="accordion-collapse-heading-6">
+                                        <button type="button" class="flex justify-between items-center p-5 w-full font-semibold text-left" data-accordion-target="#accordion-collapse-body-6" aria-expanded="false" aria-controls="accordion-collapse-body-6">
+                                            <span>Can I transfer my unreserved train ticket to another person?</span>
+                                            <svg data-accordion-icon class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </h2>
+                                    <div id="accordion-collapse-body-6" class="hidden" aria-labelledby="accordion-collapse-heading-6">
+                                        <div class="p-5">
+                                            <p class="text-slate-400 dark:text-gray-400"> No, unreserved train tickets are non-transferable. The ticket is issued for a specific passenger and cannot be used by anyone else.</p>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4">
+                                    <h2 class="text-base font-semibold" id="accordion-collapse-heading-7">
+                                        <button type="button" class="flex justify-between items-center p-5 w-full font-semibold text-left" data-accordion-target="#accordion-collapse-body-7" aria-expanded="false" aria-controls="accordion-collapse-body-7">
+                                            <span>What happens if I miss my train with an unreserved ticket?</span>
+                                            <svg data-accordion-icon class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </h2>
+                                    <div id="accordion-collapse-body-7" class="hidden" aria-labelledby="accordion-collapse-heading-7">
+                                        <div class="p-5">
+                                            <p class="text-slate-400 dark:text-gray-400">Unreserved train tickets do not guarantee a seat or a specific train. If you miss your intended train, you can use the same ticket for the next available train on the same route.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4">
+                                    <h2 class="text-base font-semibold" id="accordion-collapse-heading-8">
+                                        <button type="button" class="flex justify-between items-center p-5 w-full font-semibold text-left" data-accordion-target="#accordion-collapse-body-8" aria-expanded="false" aria-controls="accordion-collapse-body-8">
+                                            <span>How do I book an unreserved train ticket?</span>
+                                            <svg data-accordion-icon class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </h2>
+                                    <div id="accordion-collapse-body-8" class="hidden" aria-labelledby="accordion-collapse-heading-8">
+                                        <div class="p-5">
+                                            <p class="text-slate-400 dark:text-gray-400">To book an unreserved train ticket, simply visit our website and follow the steps provided. Select your source and destination stations, choose the date and time of travel, and proceed to make the payment. Once your payment is successful, you can see your booking details in booking history section.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="payment" class="mt-8">
+                            <h5 class="text-2xl font-semibold">Payments Questions</h5>
+
+                            <div id="accordion-collapsethree" data-accordion="collapse" class="mt-6">
+                                <div class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden">
+                                    <h2 class="text-base font-semibold" id="accordion-collapse-heading-9">
+                                        <button type="button" class="flex justify-between items-center p-5 w-full font-semibold text-left" data-accordion-target="#accordion-collapse-body-9" aria-expanded="true" aria-controls="accordion-collapse-body-9">
+                                            <span>How do I make a payment for booking an unreserved railway ticket on this website?</span>
+                                            <svg data-accordion-icon class="w-4 h-4 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </h2>
+                                    <div id="accordion-collapse-body-9" class="hidden" aria-labelledby="accordion-collapse-heading-9">
+                                        <div class="p-5">
+                                            <p class="text-slate-400 dark:text-gray-400">To make a payment, select the desired unreserved ticket, proceed to the payment page</p>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4">
+                                    <h2 class="text-base font-semibold" id="accordion-collapse-heading-10">
+                                        <button type="button" class="flex justify-between items-center p-5 w-full font-semibold text-left" data-accordion-target="#accordion-collapse-body-10" aria-expanded="false" aria-controls="accordion-collapse-body-10">
+                                            <span>Can I cancel my payment and get a refund if I change my mind after making an online payment for an unreserved ticket?</span>
+                                            <svg data-accordion-icon class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </h2>
+                                    <div id="accordion-collapse-body-10" class="hidden" aria-labelledby="accordion-collapse-heading-10">
+                                        <div class="p-5">
+                                            <p class="text-slate-400 dark:text-gray-400">Online payments for unreserved tickets are generally non-refundable as per the railway rules. Therefore, it's advisable to review your booking details before making the payment.</p>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4">
+                                    <h2 class="text-base font-semibold" id="accordion-collapse-heading-11">
+                                        <button type="button" class="flex justify-between items-center p-5 w-full font-semibold text-left" data-accordion-target="#accordion-collapse-body-11" aria-expanded="false" aria-controls="accordion-collapse-body-11">
+                                            <span>Are there any additional charges or fees associated with online payment for unreserved tickets?</span>
+                                            <svg data-accordion-icon class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </h2>
+                                    <div id="accordion-collapse-body-11" class="hidden" aria-labelledby="accordion-collapse-heading-11">
+                                        <div class="p-5">
+                                            <p class="text-slate-400 dark:text-gray-400">Generally, there may be a nominal convenience fee or transaction charge applicable to online payments. Please refer to the website for specific details.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4">
+                                    <h2 class="text-base font-semibold" id="accordion-collapse-heading-12">
+                                        <button type="button" class="flex justify-between items-center p-5 w-full font-semibold text-left" data-accordion-target="#accordion-collapse-body-12" aria-expanded="false" aria-controls="accordion-collapse-body-12">
+                                            <span>Can I use international credit cards for payment?</span>
+                                            <svg data-accordion-icon class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </h2>
+                                    <div id="accordion-collapse-body-12" class="hidden" aria-labelledby="accordion-collapse-heading-12">
+                                        <div class="p-5">
+                                            <p class="text-slate-400 dark:text-gray-400">Yes, international credit cards are generally accepted for payment. However, please check with your card issuer for any international transaction fees.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="support" class="mt-8">
+                            <h5 class="text-2xl font-semibold">Support Questions</h5>
+
+                            <div id="accordion-collapsefour" data-accordion="collapse" class="mt-6">
+                                <div class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden">
+                                    <h2 class="text-base font-semibold" id="accordion-collapse-heading-13">
+                                        <button type="button" class="flex justify-between items-center p-5 w-full font-semibold text-left" data-accordion-target="#accordion-collapse-body-13" aria-expanded="true" aria-controls="accordion-collapse-body-13">
+                                            <span>How can I contact customer support if I have a question or issue?</span>
+                                            <svg data-accordion-icon class="w-4 h-4 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </h2>
+                                    <div id="accordion-collapse-body-13" class="hidden" aria-labelledby="accordion-collapse-heading-13">
+                                        <div class="p-5">
+                                            <p class="text-slate-400 dark:text-gray-400"> You can reach our customer support team through our helpline number or by emailing us at gounreserved@gmail.com. We're here to assist you.</p>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4">
+                                    <h2 class="text-base font-semibold" id="accordion-collapse-heading-14">
+                                        <button type="button" class="flex justify-between items-center p-5 w-full font-semibold text-left" data-accordion-target="#accordion-collapse-body-14" aria-expanded="false" aria-controls="accordion-collapse-body-14">
+                                            <span>What are the operating hours for your customer support service?</span>
+                                            <svg data-accordion-icon class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </h2>
+                                    <div id="accordion-collapse-body-14" class="hidden" aria-labelledby="accordion-collapse-heading-14">
+                                        <div class="p-5">
+                                            <p class="text-slate-400 dark:text-gray-400">Our customer support service is available 24hrs You can contact us for assistance.</p>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4">
+                                    <h2 class="text-base font-semibold" id="accordion-collapse-heading-15">
+                                        <button type="button" class="flex justify-between items-center p-5 w-full font-semibold text-left" data-accordion-target="#accordion-collapse-body-15" aria-expanded="false" aria-controls="accordion-collapse-body-15">
+                                            <span>My payment failed during the booking process. What should I do?</span>
+                                            <svg data-accordion-icon class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </h2>
+                                    <div id="accordion-collapse-body-15" class="hidden" aria-labelledby="accordion-collapse-heading-15">
+                                        <div class="p-5">
+                                            <p class="text-slate-400 dark:text-gray-400"> If your payment failed, please check your payment method, ensure sufficient balance, and attempt the booking again. If the issue persists, contact our customer support.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4">
+                                    <h2 class="text-base font-semibold" id="accordion-collapse-heading-16">
+                                        <button type="button" class="flex justify-between items-center p-5 w-full font-semibold text-left" data-accordion-target="#accordion-collapse-body-16" aria-expanded="false" aria-controls="accordion-collapse-body-16">
+                                            <span>How do I provide feedback or report a complaint about my travel experience?
+
+                                            </span>
+                                            <svg data-accordion-icon class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </h2>
+                                    <div id="accordion-collapse-body-16" class="hidden" aria-labelledby="accordion-collapse-heading-16">
+                                        <div class="p-5">
+                                            <p class="text-slate-400 dark:text-gray-400">You can provide feedback or report complaints through our website's feedback form or by contacting our customer support.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end grid-->
+            </div><!--end container-->
+
+            <!-- <div class="container-fluid md:mt-24 mt-16">
+                <div class="container">
+                    <div class="grid grid-cols-1">
+                        <div class="relative overflow-hidden lg:px-8 px-6 py-10 rounded-xl shadow-lg dark:shadow-gray-700">
+                            <div class="grid md:grid-cols-12 grid-cols-1 items-center gap-[30px]">
+                                <div class="lg:col-span-8 md:col-span-7">
+                                    <div class="ltr:md:text-left rtl:md:text-right text-center relative z-1">
+                                        <h3 class="text-2xl font-semibold text-black dark:text-white mb-4">Explore a job now!</h3>
+                                        <p class="text-slate-400 max-w-xl">Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over 30000+ companies worldwide.</p>
+                                    </div>
+                                </div>
+            
+                                <div class="lg:col-span-4 md:col-span-5">
+                                    <div class="ltr:text-right rtl:text-left relative z-1">
+                                        <a href="employer-detail.html" class="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 dark:border-emerald-600 text-white rounded-md">Apply Now</a>
+                                        <a href="aboutus.html" class="btn bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white rounded-md ms-2">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="absolute -top-5 -start-5">
+                                <div class="uil uil-envelope lg:text-[150px] text-7xl text-black/5 dark:text-white/5 ltr:-rotate-45 rtl:rotate-45"></div>
+                            </div>
+            
+                            <div class="absolute -bottom-5 -end-5">
+                                <div class="uil uil-pen lg:text-[150px] text-7xl text-black/5 dark:text-white/5 rtl:-rotate-90"></div>
+                            </div>
+                        </div>
+                    </div><!--end grid-->
+                </div><!--end container-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End Section-->
+
+        <!-- Start Footer -->
+       !-- Switcher -->
+        <div class="fixed top-1/4 -left-2 z-50">
+            <span class="relative inline-block rotate-90">
+                <input type="checkbox" class="checkbox opacity-0 absolute" id="chk">
+                <label class="label bg-slate-900 dark:bg-white shadow dark:shadow-gray-800 cursor-pointer rounded-full flex justify-between items-center p-1 w-14 h-8" for="chk">
+                    <i class="uil uil-moon text-[20px] text-yellow-500"></i>
+                    <i class="uil uil-sun text-[20px] text-yellow-500"></i>
+                    <span class="ball bg-white dark:bg-slate-900 rounded-full absolute top-[2px] left-[2px] w-7 h-7"></span>
+                </label>
+            </span>
+        </div>
+
+        <!-- <div class="fixed top-1/2 -right-11 z-50 hidden sm:block">
+            <a href="https://1.envato.market/jobstack" target="_blank" class="py-1 px-3 relative inline-block rounded-t-md -rotate-90 bg-white dark:bg-slate-900 shadow-md dark:shadow dark:shadow-gray-800 font-semibold"><i class="mdi mdi-cart-outline me-1"></i> Download</a>
+        </div> -->
+        <!-- Switcher -->
+
+        <!-- LTR & RTL Mode Code -->
+        <div class="fixed top-[40%] -left-3 z-50">
+            <a href="#" id="switchRtl">
+                <span class="py-1 px-3 relative inline-block rounded-b-md -rotate-90 bg-white dark:bg-slate-900 shadow-md dark:shadow dark:shadow-gray-800 font-semibold rtl:block ltr:hidden" >LTR</span>
+                <span class="py-1 px-3 relative inline-block rounded-b-md -rotate-90 bg-white dark:bg-slate-900 shadow-md dark:shadow dark:shadow-gray-800 font-semibold ltr:block rtl:hidden">RTL</span>
+            </a>
+        </div> -->
+        <!-- LTR & RTL Mode Code --> 
+
+        <!-- Back to top -->
+        <a href="#" onclick="topFunction()" id="back-to-top" class="back-to-top fixed hidden text-lg rounded-full z-10 bottom-5 end-5 h-9 w-9 text-center bg-emerald-600 text-white justify-center items-center"><i class="uil uil-arrow-up"></i></a>
+        <!-- Back to top -->
+
+        <!-- JAVASCRIPTS -->
+        <script src="{% static 'assets/libs/gumshoejs/gumshoe.polyfills.min.js' %}"></script>
+        <script src="{% static 'assets/libs/feather-icons/feather.min.js' %}"></script>
+        <script src="{% static 'assets/js/plugins.init.js' %}"></script>
+        <script src="{% static 'assets/js/app.js' %}"></script>
+        <!-- JAVASCRIPTS -->
+    </body>
+
+<!-- Mirrored from shreethemes.in/jobstack/layouts/helpcenter-faqs.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 24 Jun 2023 04:31:15 GMT -->
+</html>

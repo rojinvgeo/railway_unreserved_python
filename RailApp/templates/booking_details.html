@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link href="{% static 'job/assets/libs/choices.js/public/assets/styles/choices.min.css' % }" rel="stylesheet">
+    <!-- Main Css -->
+    <link href="{% static 'job/assets/libs/%40iconscout/unicons/css/line.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'job/assets/libs/%40mdi/font/css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'job/assets/css/tailwind.css' %}" rel="stylesheet" type="text/css">
+
+    <title>Booking Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        .booking-info {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .booking-info label {
+            font-weight: bold;
+        }
+
+        .booking-info p {
+            margin: 5px 0;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    {% for obj in booking %}
+    <div class="container mt-10">
+        <div class="grid grid-cols-1 gap-[30px]">
+            <div class="group relative overflow-hidden md:flex justify-between items-center dark:shadow-gray-700 transition-all duration-500 p-5">
+                <div class="flex items-center">
+                    <div class="w-14 h-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
+                        <img src="{% static 'job/assets/images/company/train_solid.png' %}" class="h-8 w-8"  alt="">
+                    </div>
+                   
+                    <a href="job-detail-two.html" class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[180px]">{{ obj.user.uname }}</a>
+                </div>
+
+               
+                <div class="md:block flex justify-between md:mt-0 mt-2">
+                    <span class="text-slate-400"><i class="uil uil-map-marker">{{obj.ticket.starting_station}}</i> </span>
+                    <span class="text-slate-400"><i class="uil uil-map-marker">{{obj.ticket.destination_station}}</i> </span>
+                    <span class="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
+                </div>
+
+                <div class="md:block flex justify-between md:mt-0 mt-4">
+                    <span class="block"><span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">{{ obj.ticket.train }}</span></span>
+                    <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i> {{ obj.ticket.train_time }}</span>
+                </div>
+
+                <div class="md:mt-0 mt-4">
+                    <a href="#" class="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"></i></a>
+                    <a href="{% url 'tickets' %}" class="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Click Here</a>
+                </div>
+
+                <span class="w-24 bg-yellow-400 text-white text-center absolute ltr:-rotate-45 rtl:rotate-45 -start-[30px] top-1"><i class="uil uil-star"></i></span>
+            </div><!--end content-->
+            <!-- {% empty %}
+            <div style="text-align: center; padding-bottom: 10px; line-height: 1em;">
+                <h3>No Record Found ..</h3>
+            </div> -->
+            {% endfor %}
+    
+    <a href="{% url 'tickets' %}">
+        <!-- {% for obj in booking %} -->
+    <!-- <div class="container">
+        <h1>{{ obj.user.uname }}</h1>
+        <div class="booking-info">
+            <label>{{ obj.ticket.train }}</label>
+            <p>{{ obj.ticket.train_time }}</p>
+        </div>
+
+    </div> -->
+    <!-- {% empty %}
+    <div style="text-align: center; padding-bottom: 10px; line-height: 1em;">
+        <h3>No Record Found ..</h3>
+    </div> -->
+    <!-- {% endfor %} -->
+</a>
+</body>
+</html>

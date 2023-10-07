@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS Styling for the Search Bar */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      width: 300px;
+    }
+    
+    .search-input {
+      flex-grow: 1;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    
+    .search-button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    
+    .search-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<form action="{% url 'train_search' %}" method="get">
+{% csrf_token %}
+<div class="search-bar">
+    <input type="text" class="search-input" placeholder="Enter train number" name="name">
+    <button type="submit" class="search-button">Search</button>
+</form>
+    </div>
+</body>
+</html>

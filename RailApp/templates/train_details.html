@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Train Details</title>
+    <style>
+        .card {
+            background-color: #f4f4f4;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .card label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .card input[type="text"],
+        .card select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .card button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Train Details</h2>
+        <form>
+            <label for="trainName">Train Name:</label>
+            <input type="text" id="trainName" value="{{train.name}}">
+
+            <label for="trainNumber">Train Number:</label>
+            <input type="text" id="trainNumber" value="{{train.train_number}}">
+
+            <label for="startingPoint">Starting Point:</label>
+            <input type="text" id="startingPoint" value="{{train.starting_point}}">
+
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" value="{{train.destination}}">
+
+            <label for="departure">Departure:</label>
+            <input type="datetime-local" id="destination" value="{{train.departure_time}}">
+
+            <button  type="submit">Book Ticket</button>
+        </form>
+    </div>
+</body>
+</html>

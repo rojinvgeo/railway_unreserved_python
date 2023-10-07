@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+
+{% block start %}
+
+
+<div class="card-container" >
+  {% for trains in trains %}
+  <div class="small-card">
+    <div class="small-card-content">
+      <h2 class="small-card-title">{{ trains.train }}</h2>
+      <p class="small-card-text">{{ trains.description }}</p>
+      <h5>{{ trains.destination_station.name }} | {{ trains.starting_station.name }}</h5>
+      <small>{{ trains.price }}</small>      <small>{{ trains.train_time }}</small>
+
+      <a href="{% url 'book_train' trains.id %}" class="small-card-link">book now </a>
+    </div>
+  </div>
+  
+  {% endfor %}
+</div>
+
+{% endblock %}
+
+
