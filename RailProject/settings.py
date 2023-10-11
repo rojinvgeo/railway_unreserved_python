@@ -26,9 +26,9 @@ RAZORPAY_API_SECRET = 'DGX9B4prj0sqw4yy89UR9rJu'
 SECRET_KEY = 'django-insecure-3y@x(4rr4q4ecmtja-d_v=)08bowpzkg=th(c15s(4*l_wnr&u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [*]
 
 
 # Application definition
