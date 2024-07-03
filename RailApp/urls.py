@@ -14,9 +14,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path
+from django.urls import include, path
 from .import views
+# from .views import create_payment
 from .views import payment_view, payment_success_view 
+
 
 
 urlpatterns = [
@@ -27,7 +29,7 @@ path('login',views.login_view,name='login'),
  path('ForgotPassword', views.ForgotPassword, name="ForgotPassword"),
  path('PasscodeEnter', views.PasscodeEnter, name="PasscodeEnter"),
  path('PasscodeConfirmation', views.PasscodeConfirmation, name="PasscodeConfirmation"),
- path('PasswordReset', views.PasswordReset, name="PasswordReset"),
+ path('PasswordReset/<str:uname>', views.PasswordReset, name="PasswordReset"),
 #ath('PasswordReset/<int:id>', views.PasswordReset, name="PasswordReset"),
 #path('change_password',views.change_password,name='change_password'),
 path('send_email/', views.Email_Send, name='send_email'),
@@ -52,9 +54,20 @@ path('delete_user/<int:id>',views.delete_user,name='delete_user'),
  path('tickets/',views.tickets, name='tickets'),
   path('forgot_password/',views.forgot_password, name='forgot_password'),
 
+
 path('book_train/<int:id>',views.book_train,name='book_train'),
- path('payment/', payment_view, name='payment'),
+path('payment/<int:ticket_id>',views.payment_view, name='payment'),
+# path('payment', views.payment_view, name='payment'),
+# path('payment/',views.payment_view, name='payment/'),
+# path('ticketid/<int:ticket_id>/', views.ticket_id, name='ticket_id'),
+
+# path('ticketid/',views.ticket_id,name='ticket_id'),
 path('payment/success/', payment_success_view, name='payment_success'),
+
+ 
+# path('createpayment/', create_payment, name='create_payment'),
+# path('paymenthandler/',views.paymenthandler, name='paymenthandler'),
+# path('payment/success/', process_payment, name='payment_success'),
 
 #path('cnf',views.cnf,name='cnf'),
 

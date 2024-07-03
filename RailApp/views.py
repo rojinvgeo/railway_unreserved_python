@@ -7,15 +7,13 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from .forms import TrainForms,StationAddForms,TicketAddForm
 import random
-import razorpay
-
-
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.http import HttpResponseBadRequest
 from .helpers import *
 from django.conf import settings
 from django.core.mail import send_mail
+
 
 
 
@@ -164,26 +162,27 @@ def PasscodeConfirmation(request):
         print("Code Entered:",code,"and type ->",type(code))
         print("Passcode:",passcode,"and type ->",type(passcode))
         if code == passcode:
-            return redirect(PasswordReset)
+            return render(request,'password_reset.html')
         else:
             return HttpResponse("Wrong Code")
     
 
-def PasswordReset(request):
+def PasswordReset(request,uname):
     
     if request.method=='POST':
+        uname=request.POST.get('uname')
         new_password=request.POST.get('pwd')
         confirm_password=request.POST.get('conform_password')
         # user = userregister.objects.get(uname=request.session['user'])
         
-        user= userregister.objects.get(uname="uname")
+        user= userregister.objects.filter(uname=uname)
         if new_password != confirm_password:
             messages.warning(request, "your new password not match the confirm password !")
         else:
-            user.set_password(new_password)
+            user.pwd=new_password
             user.save()
             messages.success(request, "your password has been changed successfuly.!")
-            return redirect('/')
+            return redirect('login_view')
     return render(request,'password_reset.html')
 
                     
@@ -470,12 +469,32 @@ def delete_user(request,id):
 
 #payment testing
 
-client=razorpay.Client (auth=(settings.RAZORPAY_API_KEY, settings.RAZORPAY_API_SECRET))
+# client=razorpay.Client (auth=(settings.RAZORPAY_API_KEY, settings.RAZORPAY_API_SECRET))
 
+
+
+#integrated Razorpay payment
+# def payment_success(request):
+#     return render (request, 'success.html')
+
+def book_train(request,id,):
+    ticket= Ticket.objects.get(id=id)
+    if request.method=='POST':
+        ticket= Ticket.objects.get(id=id)
+        userid = userregister.objects.get(uname=request.session['user'])
+        book= Booking(user=userid,ticket=ticket)
+        book.save()
+        print(ticket)
+    return render(request, 'book.html',{'ticket':ticket})
+
+
+#payment testing from github
+import razorpay
+client=razorpay.Client (auth=(settings.RAZORPAY_API_KEY, settings.RAZORPAY_API_SECRET))
 
 def initiate_payment(amount,currency='INR'):
     data={
-    'amount':amount * 100,
+    'amount':int(amount)* 100,
     'currency':currency,
     'payment_capture':'1'
     }
@@ -483,12 +502,15 @@ def initiate_payment(amount,currency='INR'):
     return response['id']
 
 
-def payment_view(request):
-   amount = 1  # Set the amount dynamically or based on your requirements
+def payment_view(request,ticket_id):
+   ticket = Ticket.objects.get(pk=ticket_id)
+   amount = ticket.amount  # Set the amount dynamically or based on your requirements
    order_id = initiate_payment(amount)
    context = {
        'order_id': order_id,
-       'amount': amount
+       'amount': amount,
+       'ticket_id':ticket_id
+       
    }
    return render(request, 'payment.html', context)
 
@@ -514,22 +536,86 @@ def payment_success_view(request):
        # Handle the error accordingly
     
          return HttpResponse('<script>alert(" your ticket is successfully booked hppy journey");window.location="/userhome"</script>')
+   
 
 
 
 
 
-def book_train(request,id):
-    ticket= Ticket.objects.get(id=id)
-    if request.method=='POST':
-        ticket= Ticket.objects.get(id=id)
-        userid = userregister.objects.get(uname=request.session['user'])
-        book= Booking(user=userid,ticket=ticket)
-        book.save()
-        print(ticket)
-        return redirect(payment_view)
+# def initiate_payment(ticket_id,amount,currency='INR'):
+#     ticket = Ticket.objects.get(pk=ticket_id)
+#     amount = ticket.amount
+#     data={
+#     'amount':int(amount) * 100,
+#     'currency':currency,
+#     'payment_capture':'1'
+#     }
+#     response=client.order.create(data=data)
+#     return response['id']
+#  #testing 
+# def payment_view(request,ticket_id):
+#     ticket = Ticket.objects.get(pk=ticket_id)
+#     amount = ticket.amount  # Set the amount dynamically or based on your requirements
+#     order_id = initiate_payment(ticket_id, amount)  # Pass the amount to initiate_payment
+#     context = {
+#         'order_id': order_id,
+#         'amount': amount,  # Pass the amount to the template
+#         'ticket_id': ticket_id
+#     }
+#     return render(request, 'payment.html', context,)
     
-    return render(request, 'book.html',{'ticket':ticket})
+
+
+# def payment_view(request,ticket_id):
+#    ticket = Ticket.objects.get(pk=ticket_id)
+#    print(ticket_id)
+#    amount = ticket.amount  # Set the amount dynamically or based on your requirements
+#    order_id = initiate_payment(ticket_id)
+#    context = {
+#        'order_id': order_id,
+#        'amount': amount,
+#        'ticket_id':ticket_id
+#    }
+#    return render(request, 'payment.html', context)
+
+#testing
+# def ticket_id(request, ticket_id):
+#     return payment_view(request, ticket_id, amount=Ticket.objects.get(pk=ticket_id).amount)
+
+# def ticket_id(request, ticket_id):
+#     ticket = Ticket.objects.get(pk=ticket_id)
+#     return payment_view(request, ticket_id)  # Pass the ticket_id instead of the ticket object
+
+
+# def ticket_id(request,ticket_id):
+#     # Retrieve the ticket_id, either from the request or any other source
+#     ticket_id = Ticket.objects.get(pk=ticket_id)
+#     return payment_view(request, ticket_id)
+
+
+# def payment_success_view(request):
+#    order_id = request.POST.get('order_id')
+#    payment_id = request.POST.get('razorpay_payment_id')
+#    signature = request.POST.get('razorpay_signature')
+#    params_dict = {
+#        'razorpay_order_id': order_id,
+#        'razorpay_payment_id': payment_id,
+#        'razorpay_signature': signature
+#    }
+#    try:
+#        client.utility.verify_payment_signature(params_dict)
+#        # Payment signature verification successful
+#        # Perform any required actions (e.g., update the order status)
+       
+#        return render(request, 'payment_success.html')
+#    except razorpay.errors.SignatureVerificationError as e:
+       
+    
+#        # Payment signature verification failed
+#        # Handle the error accordingly
+    
+#          return HttpResponse('<script>alert(" your ticket is successfully booked hppy journey");window.location="/userhome"</script>')
+
 
 
 def tickets(request):

@@ -12,11 +12,16 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os.path
 from pathlib import Path
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-RAZORPAY_API_KEY = 'rzp_test_vpTZ5iB64mUujH'
-RAZORPAY_API_SECRET = 'DGX9B4prj0sqw4yy89UR9rJu'
+
+RAZORPAY_API_KEY='rzp_test_F2nFfxlen5OHuB'
+RAZORPAY_API_SECRET='JixZokNe0QwYwF7ihVr4FsA4'
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -41,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'RailApp',
+   
     
 
 ]
