@@ -13,6 +13,8 @@ from django.http import HttpResponseBadRequest
 from .helpers import *
 from django.conf import settings
 from django.core.mail import send_mail
+from django.contrib.auth import authenticate
+
 
 
 
@@ -76,7 +78,7 @@ def login_view(request):
     if request.method=='POST':
         uname=request.POST.get('uname')
         pwd = request.POST.get('pwd')
-        check_user=userregister.objects.filter(uname=uname, pwd=pwd)
+        check_user=(userregister.objects.filter(uname=uname, pwd=pwd))
 
         if check_user:
             request.session['user']=uname
@@ -477,7 +479,7 @@ def delete_user(request,id):
 # def payment_success(request):
 #     return render (request, 'success.html')
 
-def book_train(request,id,):
+def book_train(request,id):
     ticket= Ticket.objects.get(id=id)
     if request.method=='POST':
         ticket= Ticket.objects.get(id=id)
@@ -485,7 +487,19 @@ def book_train(request,id,):
         book= Booking(user=userid,ticket=ticket)
         book.save()
         print(ticket)
+        return redirect(payment_view)
     return render(request, 'book.html',{'ticket':ticket})
+
+
+# def book_train(request,id,):
+#     ticket= Ticket.objects.get(id=id)
+#     if request.method=='POST':
+#         ticket= Ticket.objects.get(id=id)
+#         userid = userregister.objects.get(uname=request.session['user'])
+#         book= Booking(user=userid,ticket=ticket)
+#         book.save()
+#         print('-------------')
+#     return render(request, 'book.html',{'ticket':ticket})
 
 
 #payment testing from github
@@ -631,12 +645,19 @@ def tickets(request):
 
 
 def booking_details(request):
-    booking= Booking.objects.filter(user__uname=request.session['user'])   
-    
+    booking= Booking.objects.filter(user__uname=request.session['user'])
     context = {
-      'booking':booking
-   }
+        'booking':booking
+        }
     return render(request,'booking_details.html',context) 
+
+ # user_id = request.session.get('user_id')  # Get the user ID from the session
+    # if user_id:
+    #     booking = Booking.objects.filter(user_id=user_id)
+    #     context = {'booking': booking}
+    #     return render(request, 'booking_details.html', context)
+    # else:
+    #     return HttpResponse('no tickets found') 
 
 
 

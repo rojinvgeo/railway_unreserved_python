@@ -84,7 +84,7 @@
                 <div class="md:block flex justify-between md:mt-0 mt-2">
                     <span class="text-slate-400"><i class="uil uil-map-marker">{{obj.ticket.starting_station}}</i> </span>
                     <span class="text-slate-400"><i class="uil uil-map-marker">{{obj.ticket.destination_station}}</i> </span>
-                    <span class="block font-semibold md:mt-1 mt-0">{{obj.ticket.amount}}</span>
+                    <span class="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
                 </div>
 
                 <div class="md:block flex justify-between md:mt-0 mt-4">
@@ -98,28 +98,28 @@
                 </div>
 
                 <span class="w-24 bg-yellow-400 text-white text-center absolute ltr:-rotate-45 rtl:rotate-45 -start-[30px] top-1"><i class="uil uil-star"></i></span>
-            </div><!--end content-->
-            <!-- {% empty %}
-            <div style="text-align: center; padding-bottom: 10px; line-height: 1em;">
-                <h3>No Record Found ..</h3>
-            </div> -->
-            {% endfor %}
+            </div>
+        </div>
+    </div>{% endfor %}
+            
+           
+            
     
     <a href="{% url 'tickets' %}">
-        <!-- {% for obj in booking %} -->
-    <!-- <div class="container">
+        {% for obj in booking %} 
+    <div class="container">
         <h1>{{ obj.user.uname }}</h1>
         <div class="booking-info">
             <label>{{ obj.ticket.train }}</label>
             <p>{{ obj.ticket.train_time }}</p>
         </div>
 
-    </div> -->
-    <!-- {% empty %}
+    </div> 
+    {% empty %}
     <div style="text-align: center; padding-bottom: 10px; line-height: 1em;">
         <h3>No Record Found ..</h3>
-    </div> -->
-    <!-- {% endfor %} -->
+    </div> 
+     {% endfor %} 
 </a>
 </body>
 </html>

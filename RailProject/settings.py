@@ -47,9 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'RailApp',
    
-    
 
 ]
+
+LOGIN_URL = 'login'
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
