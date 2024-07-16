@@ -51,7 +51,7 @@ path('delete_user/<int:id>',views.delete_user,name='delete_user'),
 
 
 # path('register_success',views.registration_success,name='register_success'),
- path('tickets/',views.tickets, name='tickets'),
+ path('tickets/<int:id>',views.tickets, name='tickets'),
   path('forgot_password/',views.forgot_password, name='forgot_password'),
 
 

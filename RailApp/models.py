@@ -42,8 +42,8 @@ class Ticket(models.Model):
     starting_station = models.ForeignKey(Station, related_name='starting_station', on_delete=models.CASCADE)
     destination_station = models.ForeignKey(Station, related_name='destination_station', on_delete=models.CASCADE)    
     amount = models.DecimalField(max_digits=8, decimal_places=2)
-    payment_id=models.CharField(max_length=100)
-    paid=models.BooleanField(default=False)
+    # payment_id=models.CharField(max_length=100)
+    # paid=models.BooleanField(default=False)
     train_time = models.DateTimeField(auto_now=False)
     ticket_name = models.CharField(max_length=100)
    

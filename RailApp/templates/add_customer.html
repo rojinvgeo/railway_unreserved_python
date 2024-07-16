@@ -2,7 +2,46 @@
 <html>
 <head>
   <style>
-    body {
+
+    /* Add some basic styling */
+  form {
+    max-width: 300px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  .form-control:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #101ad1;
+    color: #fff;
+    border: none;
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+
+
+    /* body {
       font-family: Arial, sans-serif;
       background-color: #f2f2f2;
     }
@@ -35,11 +74,26 @@
       background-color: #4CAF50;
       color: white;
       cursor: pointer;
-    }
+    } */
   </style>
 </head>
 <body>
-  <div class="container">
+  <form action="#" method="post">
+    {% csrf_token %}
+    
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id" required class="form-control">
+    
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required class="form-control">
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required class="form-control">
+    
+    <input type="submit" value="Add Customer">
+  </form>
+
+  <!-- <div class="container">
     <h2>Registration Form</h2>
     <form action="#" method="post">
       {% csrf_token %}
@@ -58,6 +112,6 @@
       <button type="submit">Add Customer</button>
       
     </form>
-  </div>
+  </div> -->
 </body>
 </html>

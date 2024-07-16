@@ -5,7 +5,135 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <form method="post" action="">
+<!-- New form -->
+<form>
+  <div class="form-field">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+  </div>
+  <div class="form-field">
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required>
+  </div>
+  <div class="form-field">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+  <div class="form-field">
+    <label for="address">Address:</label>
+    <textarea class="address-field address-field-overflow" name="address" required></textarea>
+  </div>
+  <div class="form-field">
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" required>
+  </div>
+  <div class="form-field">
+    <label for="file">File Upload:</label>
+    <input type="file" id="file" name="file">
+  </div>
+  <div class="form-field">
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required>
+  </div>
+  <div class="submit-btn">
+    <button type="submit">Submit</button>
+  </div>
+</form>
+<style>
+form {
+  background-color: #ecf0f1;
+  border: 1px solid #F2F2F2;
+  padding: 6px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 30%; /* Reduced form width to 30% */
+  position: absolute; /* Add this line */
+  top: 50%; /* Add this line */
+  left: 50%; /* Add this line */
+  transform: translate(-50%, -50%); /* Add this line */
+}
+
+.form-field {
+  margin-bottom: 6px;
+}
+
+form input, form select, form textarea {
+  height: 30px; /* Reduce the height of form fields to 30px */
+   /* Keep the padding to maintain a comfortable input area */
+}
+
+
+
+.form-field label {
+  display: block;
+  margin-bottom: 3px;
+  font-family: Arial, sans-serif; /* Set the font family to Arial or a similar sans-serif font */
+  font-size: 12px; /* Set the font size to 16 pixels */
+  font-weight: 600; /* Set the font weight to 600 (semi-bold) */
+  color: #44828f; /* Set the text color to a dark gray */
+
+}
+
+.address-field-overflow {
+  max-height: 120px; /* Set a maximum height */
+  overflow-y: auto; /* Add scrollbar if content exceeds height */
+}
+
+.form-field input, textarea {
+  width: 100%;
+  padding: 3px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  height: 15px; /* Reduced input field height to 15px */
+  font-size: 11px; /* Reduced input field font size */
+}
+.form-field textarea {
+  height: 30px; /* Reduced textarea height to 35px */
+}
+
+.submit-btn {
+  border-radius: 10px;
+  background-color: rgba(227, 225, 227, 0.993);
+  color: hsl(252, 9%, 89%);
+  font-size: 16px; /* Increased font size to 16px */
+  width: 120px; /* Set width to 120px */
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; 
+  width: 100%; /* Add this line to make the parent element full width */
+}
+
+.submit-btn button {
+  width: 100px;
+  height: 40px;
+  font-size: 13px;
+  padding: 10px 20px;
+  background-color: rgb(30, 27, 169); /* Add this line */
+  border-radius: 20px; /* Add this line to set rounded corners */
+  display: inline-block; /* Make the button an inline block element */
+  margin: 0 auto; /* Center the button horizontally */
+  flex: 0 0 50%; /* Add this line to make the button half the width of the parent */
+  max-width: 100%; /* Add this line to prevent the button from exceeding the parent's width */
+}
+
+.submit-btn:hover {
+  background-color: hsl(150, 10%, 89%);
+}
+
+.submit-btn button:hover {
+  background-color: #20a33a; /* Change the hover background color */
+  border-radius: 20px; /* Keep the rounded corners on hover */
+}
+
+</style>
+
+
+<!-- old form -->
+  <!-- <form method="post" action="">
     {% csrf_token %}
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" value="{{user.name}}" required><br><br>
@@ -32,10 +160,10 @@
   
     
     <input type="submit" value="Submit">
-  </form>
+  </form> -->
 </body>
 </html>
-<style>
+<!-- <style>
 form {
     width: 400px;
     margin: 0 auto;
@@ -71,4 +199,4 @@ form {
   input[type="submit"]:hover {
     background-color: #45a049;
   }
-</style>
+</style> -->

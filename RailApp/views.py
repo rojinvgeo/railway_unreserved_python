@@ -155,15 +155,22 @@ def ForgotPassword(request):
             return HttpResponse(msg)
     return render(request,'ForgotPassword.html')
 
-def PasscodeEnter(request):
+def PasscodeEnter(request):    
     return render(request, "passcode.html")
 
 def PasscodeConfirmation(request):
-    if request.method == "POST":
-        code = int(request.POST.get("code"))
+    if request.method == "POST":        
+        code=request.POST['code']
+        code1=request.POST['code1']
+        code2=request.POST['code2']
+        code3=request.POST['code3']
+        code4=request.POST['code4']
+        code5=request.POST['code5']
+        Code=int(code+code1+code2+code3+code4+code5)
+        print("PASS",passcode,type(passcode),passcode+1)
         print("Code Entered:",code,"and type ->",type(code))
-        print("Passcode:",passcode,"and type ->",type(passcode))
-        if code == passcode:
+        print("Passcode:",Code,type(Code))
+        if Code == passcode:
             return render(request,'password_reset.html')
         else:
             return HttpResponse("Wrong Code")
@@ -224,7 +231,7 @@ def userhome(request):
     search = request.GET.get('h')
 
     if search_in:
-        trains = Ticket.objects.filter(destination_station__name__icontains=search_in,starting_station__name__icontains=search)
+        trains = Ticket.objects.filter(destination_station__name__icontains=search,starting_station__name__icontains=search_in)
    
     context = {
         'trains':trains,
@@ -284,6 +291,7 @@ def edit_for_user(request):
 #     if user_id is None:
 #         messages.success(request,'no user found')
 #         return redirect(f'/change_password/{token}/')
+
     
 #     if new_password!=confirm_password:
 #         messages.success(request,'both should be equal')
@@ -483,10 +491,11 @@ def book_train(request,id):
     ticket= Ticket.objects.get(id=id)
     if request.method=='POST':
         ticket= Ticket.objects.get(id=id)
-        userid = userregister.objects.get(uname=request.session['user'])
-        book= Booking(user=userid,ticket=ticket)
-        book.save()
-        print(ticket)
+        # userid = userregister.objects.get(uname=request.session['user'])
+        # book= Booking(user=userid,ticket=ticket)
+        # book.save()
+        # print("hellooooooooo")
+        # print(ticket)
         return redirect(payment_view)
     return render(request, 'book.html',{'ticket':ticket})
 
@@ -518,38 +527,47 @@ def initiate_payment(amount,currency='INR'):
 
 def payment_view(request,ticket_id):
    ticket = Ticket.objects.get(pk=ticket_id)
+   request.session['tckid']=ticket_id
    amount = ticket.amount  # Set the amount dynamically or based on your requirements
    order_id = initiate_payment(amount)
    context = {
        'order_id': order_id,
        'amount': amount,
        'ticket_id':ticket_id
-       
-   }
-   return render(request, 'payment.html', context)
+       }
+#    userid = userregister.objects.get(uname=request.session['user'])
+#    book= Booking(user=userid,ticket=ticket)
+#    book.save()
+   return render(request, 'payment.html',context)
 
 def payment_success_view(request):
-   order_id = request.POST.get('order_id')
-   payment_id = request.POST.get('razorpay_payment_id')
-   signature = request.POST.get('razorpay_signature')
-   params_dict = {
-       'razorpay_order_id': order_id,
-       'razorpay_payment_id': payment_id,
-       'razorpay_signature': signature
-   }
-   try:
-       client.utility.verify_payment_signature(params_dict)
+    if request.method=='POST':
+        
+        order_id = request.POST.get('order_id')
+        payment_id = request.POST.get('razorpay_payment_id')
+        signature = request.POST.get('razorpay_signature')
+        params_dict = {
+            'razorpay_order_id': order_id,
+            'razorpay_payment_id': payment_id,
+            'razorpay_signature': signature
+        }
+        try:
+            client.utility.verify_payment_signature(params_dict)
        # Payment signature verification successful
        # Perform any required actions (e.g., update the order status)
-       
-       return render(request, 'payment_success.html')
-   except razorpay.errors.SignatureVerificationError as e:
-       
-    
+            
+            return render(request, 'payment_success.html')
+        except razorpay.errors.SignatureVerificationError as e:
        # Payment signature verification failed
        # Handle the error accordingly
-    
-         return HttpResponse('<script>alert(" your ticket is successfully booked hppy journey");window.location="/userhome"</script>')
+            print("HELLO IN SUCCESS")
+            ticket= Ticket.objects.get(id=request.session['tckid'])
+            userid = userregister.objects.get(uname=request.session['user'])
+            book= Booking(user=userid,ticket=ticket)
+            book.save()
+            print("hellooooooooo")
+            print(ticket)
+            return HttpResponse('<script>alert(" your ticket is successfully booked hppy journey");window.location="/userhome"</script>')
    
 
 
@@ -632,8 +650,8 @@ def payment_success_view(request):
 
 
 
-def tickets(request):
-    booking= Booking.objects.filter(user__uname=request.session['user'])   
+def tickets(request,id):
+    booking= Booking.objects.filter(ticket__id=id)   
     
     context = {
       'booking':booking
@@ -645,7 +663,9 @@ def tickets(request):
 
 
 def booking_details(request):
+    print("USER",request.session['user'])
     booking= Booking.objects.filter(user__uname=request.session['user'])
+    print(booking)
     context = {
         'booking':booking
         }
