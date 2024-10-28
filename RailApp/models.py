@@ -27,6 +27,10 @@ from django.db import models
 
 class Train(models.Model):
     name = models.CharField(max_length=100)
+    start=models.CharField(max_length=100)
+    dest=models.CharField(max_length=100)
+    
+
     # Other train fields
     def __str__(self):
         return self.name

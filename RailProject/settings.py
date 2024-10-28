@@ -18,8 +18,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-RAZORPAY_API_KEY='rzp_test_F2nFfxlen5OHuB'
-RAZORPAY_API_SECRET='JixZokNe0QwYwF7ihVr4FsA4'
+RAZORPAY_API_KEY= os.environ.get('RAZORPAY_API_KEY')
+RAZORPAY_API_SECRET=os.environ.get('RAZORPAY_API_SECRET')
 
 
 
